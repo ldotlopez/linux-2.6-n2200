@@ -1,0 +1,13 @@
+--- arch/x86/kernel/time_32.c.orig	2008-03-28 20:23:36.000000000 +1000
++++ arch/x86/kernel/time_32.c	2008-03-28 20:24:08.000000000 +1000
+@@ -210,7 +210,10 @@
+ 
+ int update_persistent_clock(struct timespec now)
+ {
++/* az not on netvistas: no hwclock 
+ 	return set_rtc_mmss(now.tv_sec);
++*/
++return 0;
+ }
+ 
+ extern void (*late_time_init)(void);
